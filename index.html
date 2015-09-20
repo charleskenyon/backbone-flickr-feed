@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Potato Front End Task</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+</body>
+	
+	<div class="container">
+		<h1>Flickr Public Feed</h1>
+		<div id="search-bar">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search for...">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">Go!</button>
+				</span>
+			</div>
+		</div>
+		<div id="scroll">
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/lib/underscore.min.js"></script>
+	<script type="text/javascript" src="js/lib/backbone.min.js"></script>
+	<script type="text/javascript" src="js/lib/mustache.min.js"></script>
+	
+	<script type="text/javascript" src="js/main.js"></script>
+	
+	<script type="text/html" id="imageTemplate">
+	
+		<div class="col-lg-3 col-xs-4 list-images">
+			<div class="image-container">
+				<img src={{media.m}} data-url={{slug}} class="img-responsive">
+			</div>
+		</div>
+		<div class="col-lg-9 col-xs-8 list-images">
+			<h3 data-url={{slug}} class="title truncate"> {{title}} </h3>
+			<p class="hidden-md hidden-lg"> {{date_taken}} </p>
+			<span>
+				<a href="https://www.flickr.com/photos/{{author_id}}">
+					<p> {{username}} </p>
+				</a>
+				<p class="hidden-sm hidden-xs"> {{date_taken}} </p>
+				<a href="{{link}}" >
+					<p>View on Flickr</p>
+				</a>
+			</span>
+		</div>
+		
+		<br />
+			
+	</script>
+	
+	<script type="text/html" id="singleImageTemplate">
+		
+		<div class="col-xs-12 single-image">
+			<a href="{{link}}" >
+				<h3> {{title}} </h3>
+			</a>
+			<span>
+				<a href="https://www.flickr.com/photos/{{author_id}}">
+					<p> {{username}} </p>
+				</a>
+				<p> {{date_taken}} </p>
+				<div id="plusone-div"></div>
+			</span>
+			<input class="btn btn-default hidden-xs" type="button" value="Back" onclick="history.back()">
+		</div>
+		<div class="col-sm-3 col-xs-4 single-image">
+			<div class="image-container">
+				<img src={{media.m}} class="img-responsive">
+			</div>
+			<br />
+		</div>
+		<div class="col-sm-9 col-xs-8 single-image">
+			{{& description}}
+			{{& tagsHTML}}
+		</div>
+			
+	</script>
+	
+</html>
